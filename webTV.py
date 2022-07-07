@@ -1,6 +1,5 @@
 import requests
 import streamlit as st
-from streamlit_lottie import st_lottie
 st.set_page_config(page_title="web của tôi" , page_icon=":tada:",layout="wide")
 hide_st_style = """
             <style>
@@ -12,13 +11,6 @@ hide_st_style = """
             </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)
-def load_lottieurl(url):
-    r = requests.get(url)
-    if r.status_code != 200:
-        return None 
-    return r.json()
-lottie_hello = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_o6spyjnc.json")
-lottie_hi = load_lottieurl("https://assets9.lottiefiles.com/packages/lf20_z7DhMX.json")
 with st.container():
     st.write("---")
     left_column , right_column = st.columns(2)
@@ -27,8 +19,6 @@ with st.container():
         st.title("một học sinh đến từ Vietnam")
         st.write("Tôi đam mê tìm cách sử dụng Python để ngày càng hiệu quả hơn")
         st.write("[learn more>](https://www.youtube.com/channel/UC3opf8J6aPKbP4EZj892rwQ)")
-    with right_column:
-        st_lottie(lottie_hi , height=300)
 with st.container():
     st.write("---")
     left_column , right_column = st.columns(2)
@@ -41,8 +31,6 @@ with st.container():
          - đang làm việc với Excel và tự nhận thấy rằng - "phải có một cách tốt hơn." """ 
          )
          st.write("[learn more>](https://www.youtube.com/channel/UC3opf8J6aPKbP4EZj892rwQ)")
-    with right_column:
-        st_lottie(lottie_hello , height=300,key="coding")
 with st.container():
     st.write("---")
     st.header("liên lạc với tôi")
